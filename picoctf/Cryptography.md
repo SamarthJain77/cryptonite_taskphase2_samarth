@@ -32,3 +32,18 @@ This can be solved online if you don't want to do it by hand!
 ## Writeup
 After reading the challenge description and the given hint, I realized that the string was encrypted using ROT13 Cipher.
 I then decoded it using the online decoder found at `https://rot13.com`, which revealed the flag: `picoCTF{next_time_I'll_try_2_rounds_of_rot13_hWqFsgzu}`.
+
+# The Numbers
+
+## Description
+The numbers... what do they mean?
+
+## Attachment
+https://jupiter.challenges.picoctf.org/static/f209a32253affb6f547a585649ba4fda/the_numbers.png
+
+## Hint
+The flag is in the format PICOCTF{}
+
+## Writeup
+Upon viewing the image and reading the given hint, I realized that the flag was encrypted in such a way that the numbers represent the positional value of the letters they belong to. 
+I then decoded it using the online decoder found at `https://www.boxentriq.com/code-breaking/numbers-to-letters`, which revealed the flag: `picoCTF{thenumbersmason}`.
