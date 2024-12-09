@@ -8,6 +8,7 @@
 - [interencdec](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Cryptography.md#interencdec)
 - [Mod 26](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Cryptography.md#mod-26)
 - [The Numbers](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Cryptography.md#the-numbers)
+- [13](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Cryptography.md#13)
 
 ## Binary Exploitation
 - [heap 0](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Binary_Exploitation.md#heap-0)
