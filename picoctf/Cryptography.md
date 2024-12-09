@@ -144,3 +144,18 @@ for i in range(len(chars)):
         b += 1
 ```
 I noticed that to run this program, an input was required so I started searching for it throughout the code. While searching, I found `#selfinput` written in the code. Taking it as a hint, I ran the program using the entire code as the input and to my surprise, it led me to the string `adlibs` and the flag: `picoCTF{adlibs}`.
+
+# Custom encryption
+
+## Description
+Can you get sense of this code file and write the function that will decode the given encrypted file content.
+Find the encrypted file here flag_info and code file might be good to analyze and get the flag.
+
+## Attachments
+- https://artifacts.picoctf.net/c_titan/94/enc_flag
+- https://artifacts.picoctf.net/c_titan/94/custom_encryption.py
+
+## Hint
+Understanding encryption algorithm to come up with decryption algorithm.
+
+## Writeup
