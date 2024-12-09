@@ -62,3 +62,85 @@ This can be solved online if you don't want to do it by hand!
 ## Writeup
 After reading the challenge description and the given hint, I realized that the string was encrypted using ROT13 Cipher.
 I then decoded it using the online decoder found at `https://rot13.com`, which revealed the flag: `picoCTF{not_too_bad_of_a_problem}`.
+
+# C3
+
+## Description
+This is the Custom Cyclical Cipher!
+Download the ciphertext here.
+Download the encoder here.
+Enclose the flag in our wrapper for submission. If the flag was "example" you would submit "picoCTF{example}".
+
+## Attachments
+- https://artifacts.picoctf.net/c_titan/47/ciphertext
+- https://artifacts.picoctf.net/c_titan/47/convert.py
+
+## Hint
+Modern crypto schemes don't depend on the encoder to be secret, but this one does.
+
+## Writeup
+Upon going through the source code file, I recognised the syntax of Python, so I was able to understand the entire code.
+I understood that the encoder takes an input string `chars` and for each character, finds its index in `lookup1`.
+It then calculates the transformation `(cur - prev) % 40`.
+This transformation is then used to select a character from `lookup2` to append to the output while the encoder keeps track of the previous index `prev` to compute the transformation for the next character.
+So based on the identified logic, I created a Python program to carry out the decoding task.
+Here is the code:
+```
+import sys
+chars = ""
+from fileinput import input
+for line in input():
+  chars += line
+
+lookup1 = "\n \"#()*+/1:=[]abcdefghijklmnopqrstuvwxyz"
+lookup2 = "ABCDEFGHIJKLMNOPQRSTabcdefghijklmnopqrst"
+
+out = ""
+
+prev = 0
+for char in chars:
+  cur = lookup2.index(char)
+  original = (cur + prev) % 40
+  out += lookup1[original]
+  prev = original
+
+sys.stdout.write(out)
+```
+Running this program with `DLSeGAGDgBNJDQJDCFSFnRBIDjgHoDFCFtHDgJpiHtGDmMAQFnRBJKkBAsTMrsPSDDnEFCFtIbEDtDCIbFCFtHTJDKerFldbFObFCFtLBFkBAAAPFnRBJGEkerFlcPgKkImHnIlATJDKbTbFOkdNnsgbnJRMFnRBNAFkBAAAbrcbTKAkOgFpOgFpOpkBAAAAAAAiClFGIPFnRBaKliCgClFGtIBAAAAAAAOgGEkImHnIl` as the input to get the output as:
+```
+#asciiorder
+#fortychars
+#selfinput
+#pythontwo
+
+chars = ""
+from fileinput import input
+for line in input():
+    chars += line
+b = 1 / 1
+
+for i in range(len(chars)):
+    if i == b * b * b:
+        print chars[i] #prints
+        b += 1 / 1
+```
+I noticed that `()` was missing in the `print` statement which seemed unusual to me so I started surfing the internet to find that it was a Python2 code.
+So I converted it into a Python3 code:
+```
+#asciiorder
+#fortychars
+#selfinput
+#pythontwo
+
+chars = ""
+from fileinput import input
+for line in input():
+    chars += line
+b = 1
+
+for i in range(len(chars)):
+    if i == (b * b * b):
+        print (chars[i]) #prints
+        b += 1
+```
+I noticed that to run this program, an input was required so I started searching for it throughout the code. While searching, I found `#selfinput` written in the code. Taking it as a hint, I ran the program using the entire code as the input and to my surprise, it led me to the string `adlibs` and the flag: `picoCTF{adlibs}`.
