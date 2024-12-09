@@ -1,6 +1,6 @@
 ## Progress
 
-## pwn.college
+## picoctf
 - [README JTP2](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Readme_JTP2.md)
 - [Reverse Engineering](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Reverse_Engineering.md)
 - [Forensics](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Forensics.md)
