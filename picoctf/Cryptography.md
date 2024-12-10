@@ -159,3 +159,137 @@ Find the encrypted file here flag_info and code file might be good to analyze an
 Understanding encryption algorithm to come up with decryption algorithm.
 
 ## Writeup
+Upon going through the source code file, I recognised the syntax of Python, so I was able to understand the entire code. I understood that the encoder takes an input string `plaintext` and performs various steps to encrypt it.
+First of all, it generates two random numbers `a` and `b` which are used to create two values `u` and `v` via the `generator()` function. 
+It computes `u = g^a % p` and `v = g^b % p` using modular exponentiation where `p` and `g` are prime numbers.
+The values of `u` and `v` are then used to compute `b_key = u^b % p` and `key = v^a % p`.
+If the two keys match, `shared key = key` is confirmed to be valid and is used in the encryption process.
+After the shared key is obtained, the `plaintext` string is encrypted using the `dynamic_xor_encrypt()` function. 
+This function applies an `XOR` operation to each character of the `plaintext` using `text_key` which is `trudeau` in this case.
+The message is reversed first and for each character, `encrypted_char` is obtained by the `XOR` between the ASCII value of the character and the corresponding ASCII value of the key character.
+This process returns `cipher_text` which is a scrambled version of the plaintext which is stored as `semi_cipher`.
+After the `XOR` operation, `semi_cipher` is further encrypted.
+The `encrypt()` function does this by multiplying each character's ASCII value by the `shared key` and further multiplying the result by `311` and appending the final result to the `cipher` list.
+The final output is a list of numbers that represent the encrypted version of the original message.
+So based on the identified logic, I created a Python program to carry out the `plaintext` retrieval task. Here is the code:
+```
+from random import randint
+import sys
+
+
+def generator(g, x, p):
+    return pow(g, x) % p
+
+
+def encrypt(plaintext, key):
+    cipher = []
+    for char in plaintext:
+        cipher.append(((ord(char) * key*311)))
+    return cipher
+
+
+def is_prime(p):
+    v = 0
+    for i in range(2, p + 1):
+        if p % i == 0:
+            v = v + 1
+    if v > 1:
+        return False
+    else:
+        return True
+
+
+def dynamic_xor_encrypt(plaintext, text_key):
+    cipher_text = ""
+    key_length = len(text_key)
+    for i, char in enumerate(plaintext[::-1]):
+        key_char = text_key[i % key_length]
+        encrypted_char = chr(ord(char) ^ ord(key_char))
+        cipher_text += encrypted_char
+    return cipher_text
+
+
+def test(plain_text, text_key):
+    p = 97
+    g = 31
+    if not is_prime(p) and not is_prime(g):
+        print("Enter prime numbers")
+        return
+    a = randint(p-10, p)
+    b = randint(g-10, g)
+    print(f"a = {a}")
+    print(f"b = {b}")
+    u = generator(g, a, p)
+    v = generator(g, b, p)
+    key = generator(v, a, p)
+    b_key = generator(u, b, p)
+    shared_key = None
+    if key == b_key:
+        shared_key = key
+    else:
+        print("Invalid key")
+        return
+    semi_cipher = dynamic_xor_encrypt(plain_text, text_key)
+    cipher = encrypt(semi_cipher, shared_key)
+    print(f'cipher is: {cipher}')
+    
+ 
+def decrypt(cipher, key):
+    plaintext = ""
+    for encrypted_value in cipher:
+        decrypted_value = encrypted_value // (key*311)
+        plaintext += chr(decrypted_value)
+    return plaintext
+    
+    
+def dynamic_xor_decrypt(plaintext, text_key):
+    cipher_text = ""
+    key_length = len(text_key)
+    for i, char in enumerate(plaintext[::-1]):
+        key_char = text_key[i % key_length]
+        encrypted_char = chr(ord(char) ^ ord(key_char))
+        cipher_text += encrypted_char
+    plaintext = cipher_text
+    cipher_text = ""
+    key_length = len(text_key)
+    for i, char in enumerate(plaintext[::-1]):
+        key_char = text_key[i % key_length]
+        encrypted_char = chr(ord(char) ^ ord(key_char))
+        cipher_text += encrypted_char
+    plaintext = cipher_text
+    cipher_text = ""
+    key_length = len(text_key)
+    for i, char in enumerate(plaintext[::-1]):
+        key_char = text_key[i % key_length]
+        encrypted_char = chr(ord(char) ^ ord(key_char))
+        cipher_text += encrypted_char
+    return cipher_text
+
+
+def untest():
+    p = 97
+    g = 31
+    a = 95
+    b = 21
+    u = generator(g, a, p)
+    v = generator(g, b, p)
+    key = generator(v, a, p)
+    b_key = generator(u, b, p)
+    shared_key = None
+    if key == b_key:
+        shared_key = key
+    else:
+        print("Invalid key")
+        return
+    cipher = [237915, 1850450, 1850450, 158610, 2458455, 2273410, 1744710, 1744710, 1797580, 1110270, 0, 2194105, 555135, 132175, 1797580, 0, 581570, 2273410, 26435, 1638970, 634440, 713745, 158610, 158610, 449395, 158610, 687310, 1348185, 845920, 1295315, 687310, 185045, 317220, 449395]
+    semi_cipher = decrypt(cipher, shared_key)
+    flag = dynamic_xor_decrypt(semi_cipher, "trudeau")
+    print (flag)
+    
+    
+if __name__ == "__main__":
+    # message = sys.argv[1]
+    # test(message, "trudeau")
+    untest()
+```
+Running this program led me to the flag: `picoCTF{custom_d2cr0pt6d_66778b34}`.
