@@ -11,6 +11,7 @@
 - [13](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Cryptography.md#13)
 - [C3](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Cryptography.md#c3)
 - [Custom encryption](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Cryptography.md#custom-encryption)
+- [miniRSA](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Cryptography.md#minirsa)
 
 ## Binary Exploitation
 - [heap 0](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Binary_Exploitation.md#heap-0)
