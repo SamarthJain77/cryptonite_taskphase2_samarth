@@ -340,13 +340,12 @@ def cuberoot(num):
     while low <= high:
         mid = (low + high) // 2
         mid_cube = mid ** 3
-        if mid_cubed == num:
+        if mid_cube == num:
             return mid
-        elif mid_cubed < num:
+        elif mid_cube < num:
             low = mid + 1
         else:
             high = mid - 1
-    return low - 1
 
 result = cuberoot(C)
 hexresult = hex(result)
