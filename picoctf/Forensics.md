@@ -227,3 +227,22 @@ I then viewed it using the online photo editor found at `https://www.photopea.co
 On surfing the internet, I learned that width of the image is located at bytes 18-21 and height of the image is located at bytes 22-25.
 I noticed that the width of the image was set to `6E 04 00 00` so I set the height of the image to the same values and exported it.
 I then viewed the edited image, which led me to the flag: `picoCTF{qu1t3_a_v13w_2020}`.
+
+# m00nwalk
+
+## Description
+Decode this message from the moon.
+
+## Attachment
+https://jupiter.challenges.picoctf.org/static/fc1edf07742e98a480c6aff7d2546107/message.wav
+
+## Hints
+- How did pictures from the moon landing get sent back to Earth?
+- What is the CMU mascot?, that might help select a RX option
+
+## Writeup
+After reading the challenge description and the given hint, I surfed the internet to learn that `Slow-scan television (SSTV)` was the method used to transmit and receive images over radio frequenices during the Apollo 11 mission, marking the first human landing on the Moon.
+I also discovered that `Carnegie Mellon University (CMU)`'s mascot is `Scotty` suggesting that the audio file given in the challenge needed to be decoded using the `SSTV` method with the mode set to `Scottie`.
+This can be done using `Robot36 - SSTV Image Decoder`, a tool designed to decode Slow Scan Television images from audio files.
+I downloaded it and imported the audio file through the microphone to initiate the decoding process.
+On completion, I viewed the decoded image, which revealed the flag: `picoCTF{beep_boop_im_in_space}`.
