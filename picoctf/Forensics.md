@@ -221,3 +221,9 @@ https://mercury.picoctf.net/static/21c07c9dd20cd9f2459a0ae75d99af6e/tunn3l_v1s10
 Weird that it won't display right...
 
 ## Writeup
+Upon downloading the file, I had no idea how it worked or how to access its content because it had no extension.
+I began analyzing the file's information and metadata using the online data viewer at `https://www.metadata2go.com`, which brought me to the conclusion that given file was a `BMP image` as mentioned in the `mime_type`.
+I then viewed it using the online photo editor found at `https://www.photopea.com` but the image seem cropped for some reason and it led me to a fake flag: `notaflag{sorry}` so I started analyzing its data using the online hex editor at `https://hexed.it`.
+On surfing the internet, I learned that width of the image is located at bytes 18-21 and height of the image is located at bytes 22-25.
+I noticed that the width of the image was set to `6E 04 00 00` so I set the height of the image to the same values and exported it.
+I then viewed the edited image, which led me to the flag: `picoCTF{qu1t3_a_v13w_2020}`.
