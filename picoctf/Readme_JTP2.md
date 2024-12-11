@@ -1,6 +1,7 @@
 ## Reverse Engineering
 
 ## Forensics
+- [Verify](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Forensics.md#verify)
 
 ## Web Exploitation
 
