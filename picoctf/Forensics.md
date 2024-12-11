@@ -93,5 +93,5 @@ Additional details will be available after launching your challenge instance.
 - If you don't have access to a phone, you can also use zbar-tools to convert an image to text
 
 ## Writeup
-Upon examining the QR code in the image, I noticed that the QR code was not altered or tempered and was easily scannable.
+Upon examining the QR code in the image, I noticed that it was neither altered nor tampered with and was easily scannable.
 Scanning it revealed the flag: `picoCTF{p33k_@_b00_19eccd10}`.
