@@ -208,3 +208,16 @@ Upon interpreting the text further, I understood that `program.deb` file might c
 I then started analyzing the images using the online tool found at `https://futureboy.us/stegano/decinput.html` but it asked for a password.
 After testing various phrases, I found the valid passphrase as `DUEDILIGENCE`.
 On successful analysis, `picture3.bmp` led me to the flag: `picoCTF{h1dd3n_1n_pLa1n_51GHT_18375919}`.
+
+# tunn3l v1s10n
+
+## Description
+We found this file. Recover the flag.
+
+## Attachment
+https://mercury.picoctf.net/static/21c07c9dd20cd9f2459a0ae75d99af6e/tunn3l_v1s10n
+
+## Hint
+Weird that it won't display right...
+
+## Writeup
