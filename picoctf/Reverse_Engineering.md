@@ -41,12 +41,7 @@ Make a table that contains each value of the loop variables and the correspondin
 
 ## Writeup
 Upon going through the source code file, I found the syntax of Java quite similar to C, so I was able to understand the entire code using my knowledge of C as I don't have any prerequisite knowledge of Java.
-I understood that the program first ensures that the password is exactly 32 characters long and then creates a new password string named `buffer` by copying characters from the input password in the following order:
-- The first 8 characters are copied directly.
-- The next 8 characters are copied in reverse order from characters at positions 23 to 16.
-- The next 8 characters are copied from positions 46 to 32 with a step size of 2.
-- The last 8 characters are copied from positions 31 to 17 with a step size of -2.
-
+I understood that the program first ensures that the password is exactly 32 characters long and then creates a new password string named `buffer` by copying characters from the input password in a specific order.
 The modified password is then compared to a fixed string: `jU5t_a_sna_3lpm18gb41_u_4_mfr340`.
 If they match, access to the vault is granted. Otherwise, the access is denied.
 So based on the identified logic, I created a C program to carry out this password retrieval task. Here is the code:
