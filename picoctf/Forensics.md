@@ -149,3 +149,20 @@ https://mercury.picoctf.net/static/d1375e383810d8d957c04eef9e345732/cat.jpg
 Upon viewing the image, I assumed it was shared randomly for the purpose of trolling.
 However, I decided to analyze the image's information and metadata using the online data viewer at `https://www.metadata2go.com`, which led me to a base64 encoded string `cGljb0NURnt0aGVfbTN0YWRhdGFfMXNfbW9kaWZpZWR9` present as `license`.
 I then decoded it using the online decoder found at `https://base64.guru/converter/decode/text`, which led me to the flag: `picoCTF{the_m3tadata_1s_modified}`.
+
+# Glory of the Garden
+
+## Description
+This garden contains more than it seems.
+
+## Attachment
+https://jupiter.challenges.picoctf.org/static/d0e1ffb10fc0017c6a82c57900f3ffe3/garden.jpg
+
+## Hint
+What is a hex editor?
+
+## Writeup
+Upon viewing the image and reading the given hint, I realized that I needed to do something with the raw binary data of the image available in hexadecimal format.
+To do that, I imported the given image and started analyzing its data using the online hex editor at `https://hexed.it`.
+Using the inbuilt search feature, I searched for the term `picoCTF`, which led me to a series of hexadecimal digits.
+Alongside these digits was the ASCII representation, which revealed the flag: `picoCTF{more_than_m33ts_the_3y3eBdBd2cc}`.
