@@ -95,3 +95,21 @@ Additional details will be available after launching your challenge instance.
 ## Writeup
 Upon examining the QR code in the image, I noticed that it was neither altered nor tampered with and was easily scannable.
 Scanning it revealed the flag: `picoCTF{p33k_@_b00_19eccd10}`.
+
+# Secret of the Polyglot
+
+## Description
+The Network Operations Center (NOC) of your local institution picked up a suspicious file, they're getting conflicting information on what type of file it is. They've brought you in as an external expert to examine the file. Can you extract all the information from this strange file?
+Download the suspicious file here.
+
+## Attachment
+https://artifacts.picoctf.net/c_titan/97/flag2of2-final.pdf
+
+## Hint
+This problem can be solved by just opening the file in different ways
+
+## Writeup
+After reading the challenge description and the given hint, I realized that I needed to tweak the file extension to extract relevant information.
+Upon opening the document with `.pdf` extension, I found one half of the flag: `1n_pn9_&_pdf_724b1287}`.
+Then I changed the file extension to `.jpg`, which revealed the other half of the flag: `picoCTF{f1u3n7_`.
+Combining both halves led me to the complete flag: `picoCTF{f1u3n7_1n_pn9_&_pdf_724b1287}`.
