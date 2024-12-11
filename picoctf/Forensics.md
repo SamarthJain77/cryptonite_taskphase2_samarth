@@ -132,3 +132,20 @@ Upon viewing the image, I assumed it was connected to a movie or series.
 I searched all over the Internet but found nothing pertinent to the challenge. 
 Consequently, I began analyzing the image's information and metadata using the online data viewer at `https://www.metadata2go.com`, which led me to a base64 encoded string `cGljb0NURntNRTc0RDQ3QV9ISUREM05fNmE5ZjVhYzR9Cg==` present as `attribution_url`.
 I then decoded it using the online decoder found at `https://base64.guru/converter/decode/text`, which led me to the flag: `picoCTF{ME74D47A_HIDD3N_6a9f5ac4}`.
+
+# information
+
+## Description
+Files can always be changed in a secret way. Can you find the flag? cat.jpg
+
+## Attachment
+https://mercury.picoctf.net/static/d1375e383810d8d957c04eef9e345732/cat.jpg
+
+## Hints
+- Look at the details of the file
+- Make sure to submit the flag as picoCTF{XXXXX}
+
+## Writeup
+Upon viewing the image, I assumed it was just a random trolling image. 
+However, I decided to analyze the image's information and metadata using the online data viewer at `https://www.metadata2go.com`, which led me to a base64 encoded string `cGljb0NURnt0aGVfbTN0YWRhdGFfMXNfbW9kaWZpZWR9` present as `license`.
+I then decoded it using the online decoder found at `https://base64.guru/converter/decode/text`, which led me to the flag: `picoCTF{the_m3tadata_1s_modified}`.
