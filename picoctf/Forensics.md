@@ -113,3 +113,22 @@ After reading the challenge description and the given hint, I realized that I ne
 Upon opening the document with `.pdf` extension, I found one half of the flag: `1n_pn9_&_pdf_724b1287}`.
 Then I changed the file extension to `.jpg`, which revealed the other half of the flag: `picoCTF{f1u3n7_`.
 Combining both halves led me to the complete flag: `picoCTF{f1u3n7_1n_pn9_&_pdf_724b1287}`.
+
+# CanYouSee
+
+## Description
+How about some hide and seek?
+Download this file here.
+
+## Attachment
+https://artifacts.picoctf.net/c_titan/130/unknown.zip
+
+## Hints
+- How can you view the information about the picture?
+- If something isn't in the expected form, maybe it deserves attention?
+
+## Writeup
+Upon viewing the image, I assumed it was connected to a movie or series. 
+I searched all over the Internet but found nothing pertinent to the challenge. 
+Consequently, I began analyzing the image's information and metadata using the online data viewer at `https://www.metadata2go.com`, which led me to a base64 encoded string `cGljb0NURntNRTc0RDQ3QV9ISUREM05fNmE5ZjVhYzR9Cg==` present as `attribution_url`.
+I then decoded it using the online decoder found at `https://base64.guru/converter/decode/text`, which led me to the flag: `picoCTF{ME74D47A_HIDD3N_6a9f5ac4}`.
