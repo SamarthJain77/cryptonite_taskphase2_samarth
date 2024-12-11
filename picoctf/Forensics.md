@@ -166,3 +166,46 @@ Upon viewing the image and reading the given hint, I realized that I needed to d
 To do that, I imported the given image and started analyzing its data using the online hex editor at `https://hexed.it`.
 Using the inbuilt search feature, I searched for the term `picoCTF`, which led me to a series of hexadecimal digits.
 Alongside these digits was the ASCII representation, which revealed the flag: `picoCTF{more_than_m33ts_the_3y3eBdBd2cc}`.
+
+# Trivial Flag Transfer Protocol
+
+## Description
+Figure out how they moved the flag.
+
+## Attachment
+https://mercury.picoctf.net/static/88553d672efbccbc5868002f4c6eb737/tftp.pcapng
+
+## Hint
+What are some other ways to hide data?
+
+## Writeup
+Upon downloading the `.pcapng` file, I had no idea how it worked or how to access its content.
+On surfing the internet, I learned that it is a file which is used to capture and store network traffic packets, including their metadata and this content can be accessed using `Wireshark`, a widely used, open source network analyzer tool that captures and displays network traffic details in real time.
+I downloaded it and imported the file to analyze the network traffic data.
+Within the `Trivial File Transfer Protocol` layer, I noticed a series of hexadecimal digits.
+Their ASCII representation mentioned about `instructions.txt` file.
+To retrieve this file, I started looking for relevant options and settings.
+After some trial and error, I discovered the `Export Objects` option under the `File` menu.
+Selecting the `TFTP` option displayed a list of files:
+- instructions.txt
+- plan
+- program.deb
+- picture1.bmp
+- picture2.bmp
+- picture3.bmp
+
+I saved all the files assuming they might be useful later.
+Upon opening the `instructions.txt` file, I found that it contained a ciphertext `GSGCQBRFAGRAPELCGBHEGENSSVPFBJRZHFGQVFTHVFRBHESYNTGENAFSRE.SVTHERBHGNJNLGBUVQRGURSYNTNAQVJVYYPURPXONPXSBEGURCYNA`.
+Using the online cipher analyzer at `https://www.boxentriq.com/code-breaking/cipher-identifier`, I identified that the text was encoded using a Caesar Cipher.
+I then decoded it using the online decoder found at `https://www.boxentriq.com/code-breaking/caesar-cipher`, which revealed the plaintext: `TFTPDOESNTENCRYPTOURTRAFFICSOWEMUSTDISGUISEOURFLAGTRANSFER.FIGUREOUTAWAYTOHIDETHEFLAGANDIWILLCHECKBACKFORTHEPLAN`.
+Upon reading this decrypted text, I realized that I needed to do something with the `plan` file.
+Upon opening it, I found that it contained another ciphertext `VHFRQGURCEBTENZNAQUVQVGJVGU-QHRQVYVTRAPR.PURPXBHGGURCUBGBF`.
+Using the online cipher analyzer at `https://www.boxentriq.com/code-breaking/cipher-identifier`, I identified that the text was again encoded using a Caesar Cipher.
+I then decoded it using the online decoder found at `https://www.boxentriq.com/code-breaking/caesar-cipher`, which revealed the plaintext: `IUSEDTHEPROGRAMANDHIDITWITH-DUEDILIGENCE.CHECKOUTTHEPHOTOS`.
+Upon reading this decrypted text, I realized that I needed to do something with the pictures.
+I began analyzing the information and metadata of all the images but found nothing pertinent to the challenge.
+Upon interpreting the text further, I understood that `program.deb` file might contain something useful so I unpacked it to find info related to `steghide` command which meant that I needed to carry out steganography analysis on the images.
+I then started analyzing the images using the online tool found at `https://futureboy.us/stegano/decinput.html`.
+However, it asked for a password.
+After testing various phrases, I found the valid passphrase as `DUEDILIGENCE`.
+On successful analysis, `picture3.bmp` led me to the flag: `picoCTF{h1dd3n_1n_pLa1n_51GHT_18375919}`.
