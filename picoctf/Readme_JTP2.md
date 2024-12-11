@@ -5,6 +5,7 @@
 - [Scan Surprise](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Forensics.md#scan-surprise)
 - [Secret of the Polyglot](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Forensics.md#secret-of-the-polyglot)
 - [CanYouSee](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Forensics.md#canyousee)
+- [information](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Forensics.md#information)
 
 ## Web Exploitation
 
