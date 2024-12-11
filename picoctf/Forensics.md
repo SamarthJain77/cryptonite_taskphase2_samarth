@@ -205,7 +205,6 @@ I then decoded it using the online decoder found at `https://www.boxentriq.com/c
 Upon reading this decrypted text, I realized that I needed to do something with the pictures.
 I began analyzing the information and metadata of all the images but found nothing pertinent to the challenge.
 Upon interpreting the text further, I understood that `program.deb` file might contain something useful so I unpacked it to find info related to `steghide` command which meant that I needed to carry out steganography analysis on the images.
-I then started analyzing the images using the online tool found at `https://futureboy.us/stegano/decinput.html`.
-However, it asked for a password.
+I then started analyzing the images using the online tool found at `https://futureboy.us/stegano/decinput.html` but it asked for a password.
 After testing various phrases, I found the valid passphrase as `DUEDILIGENCE`.
 On successful analysis, `picture3.bmp` led me to the flag: `picoCTF{h1dd3n_1n_pLa1n_51GHT_18375919}`.
