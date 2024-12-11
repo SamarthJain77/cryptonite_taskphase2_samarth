@@ -6,8 +6,8 @@ Additional details will be available after launching your challenge instance.
 
 To decrypt the file once you've verified the hash, run `./decrypt.sh files/<file>`.
 
-## Attachment
-- ssh -p 52220 ctf-player@rhea.picoctf.net 
+## Attachments
+- `ssh -p 52220 ctf-player@rhea.picoctf.net`
 - Use the password `f3b61b38`. Remember, in a shell, passwords are hidden!
 - Accept the fingerprint with `yes`, and `ls` once connected to begin.
 - Checksum: fba9f49bf22aa7188a155768ab0dfdc1f9b86c47976cd0f7c9003af2e20598f7
@@ -71,3 +71,27 @@ Then I navigated to the `files` directory using `cd files` command and there I u
 I realized that it was impractical to create a SHA checksum for each file and then manually match it with the given checksum `fba9f49bf22aa7188a155768ab0dfdc1f9b86c47976cd0f7c9003af2e20598f7`. 
 Instead, I used the command `sha256sum * | grep fba9f49bf22aa7188a155768ab0dfdc1f9b86c47976cd0f7c9003af2e20598f7` which gave the output as `fba9f49bf22aa7188a155768ab0dfdc1f9b86c47976cd0f7c9003af2e20598f7 87590c24`.
 After finding the required file, I navigated to the `home` directory using `cd ~` command and there I executed the `decrypt.sh` shell script using `decrypt.sh files/87590c24` command which led me to the flag: `picoCTF{trust_but_verify_87590c24}`.
+
+# Scan Surprise
+
+## Description
+I've gotten bored of handing out flags as text. Wouldn't it be cool if they were an image instead?
+You can download the challenge files here:
+- challenge.zip
+
+Additional details will be available after launching your challenge instance.
+
+## Attachments
+- https://artifacts.picoctf.net/c_atlas/15/challenge.zip
+- The same files are accessible via SSH here: `ssh -p 58976 ctf-player@atlas.picoctf.net`
+- Use the password `1db87a14`. Remember, in a shell, passwords are hidden!
+- Accept the fingerprint with `yes`, and `ls` once connected to begin.
+
+## Hints
+- QR codes are a way of encoding data. While they're most known for storing URLs, they can store other things too.
+- Mobile phones have included native QR code scanners in their cameras since version 8 (Oreo) and iOS 11
+- If you don't have access to a phone, you can also use zbar-tools to convert an image to text
+
+## Writeup
+Upon examining the QR code in the image, I noticed that the QR code was not altered or tempered and was easily scannable.
+Scanning it revealed the flag: `picoCTF{p33k_@_b00_19eccd10}`.
