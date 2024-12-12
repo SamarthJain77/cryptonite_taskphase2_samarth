@@ -1,4 +1,6 @@
 ## Reverse Engineering
+- [Transformation](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Reverse_Engineering.md#transformation)
+- [vault-door-training](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Reverse_Engineering.md#vault-door-training)
 - [GDB baby step 1](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Reverse_Engineering.md#gdb-baby-step-1)
 - [ARMssembly 1](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Reverse_Engineering.md#armssembly-1)
 - [vault-door-3](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Reverse_Engineering.md#vault-door-3)
