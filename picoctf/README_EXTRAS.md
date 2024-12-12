@@ -11,6 +11,8 @@
 - [Glory of the Garden](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Forensics_Extras.md#glory-of-the-garden)
 
 ## Web Exploitation Extras
+- [WebDecode](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Web_Exploitation_Extras.md#webdecode)
+- [Unminify](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Web_Exploitation_Extras.md#unminify)
 
 ## Cryptography Extras
 - [interencdec](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Cryptography_Extras.md#interencdec)
