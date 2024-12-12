@@ -308,7 +308,7 @@ https://jupiter.challenges.picoctf.org/static/d21037ad23ed84cfff20a84768a0f2b2/c
 - Make sure you don't lose precision, the numbers are pretty big (besides the e value)
 
 ## Writeup
-After reading the challenge description and the given hint, I realized that I needed to do something with the way RSA encryption works.
+After reading the challenge description and the given hints, I realized that I needed to do something with the way RSA encryption works.
 RSA encryption formula is `C = M^e mod n` where:
 - C is the ciphertext or encrypted message
 - M is the plaintext or decrypted message
