@@ -1,3 +1,11 @@
+```
+███████╗██╗░░██╗████████╗██████╗░░█████╗░░██████╗
+██╔════╝╚██╗██╔╝╚══██╔══╝██╔══██╗██╔══██╗██╔════╝
+█████╗░░░╚███╔╝░░░░██║░░░██████╔╝███████║╚█████╗░
+██╔══╝░░░██╔██╗░░░░██║░░░██╔══██╗██╔══██║░╚═══██╗
+███████╗██╔╝╚██╗░░░██║░░░██║░░██║██║░░██║██████╔╝
+╚══════╝╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚═╝╚═════╝░
+```
 # Verify
 
 ## Description
@@ -166,7 +174,14 @@ Upon viewing the image and reading the given hint, I realized that I needed to d
 To do that, I imported the given image and started analyzing its data using the online hex editor at `https://hexed.it`.
 Using the inbuilt search feature, I searched for the term `picoCTF`, which led me to a series of hexadecimal digits.
 Alongside these digits was the ASCII representation, which revealed the flag: `picoCTF{more_than_m33ts_the_3y3eBdBd2cc}`.
-
+```
+████████╗░█████╗░░██████╗██╗░░██╗██████╗░██╗░░██╗░█████╗░░██████╗███████╗
+╚══██╔══╝██╔══██╗██╔════╝██║░██╔╝██╔══██╗██║░░██║██╔══██╗██╔════╝██╔════╝
+░░░██║░░░███████║╚█████╗░█████═╝░██████╔╝███████║███████║╚█████╗░█████╗░░
+░░░██║░░░██╔══██║░╚═══██╗██╔═██╗░██╔═══╝░██╔══██║██╔══██║░╚═══██╗██╔══╝░░
+░░░██║░░░██║░░██║██████╔╝██║░╚██╗██║░░░░░██║░░██║██║░░██║██████╔╝███████╗
+░░░╚═╝░░░╚═╝░░╚═╝╚═════╝░╚═╝░░╚═╝╚═╝░░░░░╚═╝░░╚═╝╚═╝░░╚═╝╚═════╝░╚══════╝
+```
 # Trivial Flag Transfer Protocol
 
 ## Description
