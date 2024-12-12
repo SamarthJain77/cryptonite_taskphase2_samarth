@@ -18,7 +18,7 @@ To decrypt the file once you've verified the hash, run `./decrypt.sh files/<file
 - Remember you can pipe the output of one command to another with `|`. Try practicing with the `'First Grep'` challenge if you're stuck!
 
 ## Writeup
-After reading the challenge description and the given hint, I realized that I needed to do something with `sha256sum <file>` command, `|` operator and `grep <string>` command.
+After reading the challenge description and the given hints, I realized that I needed to do something with `sha256sum <file>` command, `|` operator and `grep <string>` command.
 I knew that `sha256sum` command is used to create a SHA checksum of a file, `|` operator is used to connect the output of one command directly to the input of another command and `grep` command is used for searching for lines that match a specified pattern.
 On connecting with the challenge instance, I used `ls` command for listing all files and directories and got the output as `checksum.txt`, `decrypt.sh` and `files`.
 Then I used `sha256sum *` command and got the output as:
