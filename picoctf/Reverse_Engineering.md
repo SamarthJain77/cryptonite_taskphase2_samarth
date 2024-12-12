@@ -28,6 +28,79 @@ Upon executing it, entire order of instructions that the CPU follows for the `ma
 After analyzing this instruction, I realised that `0x86342` was the required hexadecimal value. 
 I then converted it to decimal number base using the online decoder found at `https://www.rapidtables.com/convert/number/hex-to-decimal.html?x=86342`, which led me to the value of `n` as `549698` and the flag: `picoCTF{549698}`.
 
+# ARMssembly 1
+
+## Description
+For what argument does this program print `win` with variables `87`, `3` and `3`? File: chall_1.S Flag format: picoCTF{XXXXXXXX} -> (hex, lowercase, no 0x, and 32 bits. ex. 5614267 would be picoCTF{0055aabb})
+
+## Attachment
+https://mercury.picoctf.net/static/52fa2dfbc7fb145f0a4bf7fd2a89fc49/chall_1.S
+
+## Hint
+Shifts
+
+## Writeup
+Upon downloading the `.S` file, I had no idea how it worked or how to run its content.
+On surfing the internet, I learned that it is a source file written in assembly language which contains assembly code for a specific architecture (ARM, x86, etc..) and is processed by an assembler into machine code.
+Upon going through the source code file, I saw the assembly program that consisted of two main functions `func` and `main`.
+On surfing the internet, I understood the functionality and working of each command and got to know that the main goal was performing arithmetic operations on the number given by user as the input and printing a specific message based on the result.
+Here is what I understood:
+```
+func:
+    sub sp, sp, #32 ----------> Saves the stack pointer and allocates 32 bytes on the stack for local variables
+    str w0, [sp, 12] ----------> Stores the value of w0 at sp + 12
+    mov w0, 87 ----------> Moves 87 into w0
+    str w0, [sp, 16] ----------> Stores 87 at sp + 16
+    mov w0, 3 ----------> Moves 3 into w0
+    str w0, [sp, 20] ----------> Stores 3 at sp + 20
+    mov w0, 3 ----------> Moves 3 into w0 again
+    str w0, [sp, 24] ----------> Stores 3 at sp + 24
+    ldr w0, [sp, 20] ----------> Loads the value at sp + 20 which is 3 into w0
+    ldr w1, [sp, 16] ----------> Loads the value at sp + 16 which is 87 into w1
+    lsl w0, w1, w0 ----------> w0 = w1 << w0 or 87 << 3 = 696 (Left bitwise shift)
+    str w0, [sp, 28] ----------> Stores the result 696 at sp + 28
+    ldr w1, [sp, 28] ----------> Loads the value at sp + 28 which is 696 into w1
+    ldr w0, [sp, 24] ----------> Loads the value at sp + 24 which is 3 into w0
+    sdiv w0, w1, w0 ----------> w0 = w1 / w0 or 696 / 3 = 232 (Division)
+    str w0, [sp, 28] ----------> Stores the result 232 at sp + 28
+    ldr w1, [sp, 28] ----------> Loads the value at sp + 28 which is 232 into w1
+    ldr w0, [sp, 12] ----------> Loads the initial value at sp + 12 into w0
+    sub w0, w1, w0 ----------> w0 = w1 - w0 or 232 - initial value (Subtraction)
+    str w0, [sp, 28] ----------> Stores the result at sp + 28
+    ldr w0, [sp, 28] ----------> Loads the value at sp + 28 into w0
+    add sp, sp, 32 ----------> Deallocates the 32 bytes from the stack
+    ret ----------> Returns from the function
+main:
+    stp x29, x30, [sp, -48]! ----------> Saves the register and frame pointer to the stack
+    add x29, sp, 0 ----------> Sets the frame pointer to the current stack pointer
+    str w0, [x29, 28] ----------> Stores the value of w0 at x29 + 28
+    str x1, [x29, 16] ----------> Stores the value of x1 at x29 + 16
+    ldr x0, [x29, 16] ----------> Loads the value at x29 + 16 which is x1
+    add x0, x0, 8 ----------> x0 = x0 + 8 (Addition)
+    ldr x0, [x0] ----------> Dereferences the address and loads the value at that address
+    bl atoi ----------> Calls the 'atoi' function to convert the value of x0 to an integer
+    str w0, [x29, 44] ----------> Stores the converted integer value at x29 + 44
+    ldr w0, [x29, 44] ----------> Loads the converted integer value at x29 + 44
+    bl func ----------> Calls the function 'func' with the converted integer as the argument
+    cmp w0, 0 ----------> Compares the result which is value of w0 to 0
+    bne .L4 ----------> If result is not 0, jumps to .L4
+    adrp x0, .LC0 ----------> Loads address of the string "You win!" into x0
+    add x0, x0, :lo12:.LC0 ----------> Adds 12 bits of the address to x0
+    bl puts ----------> Calls the function 'puts' to print "You win!"
+    b .L6 ----------> Jumps to the end of the program
+.L4:
+    adrp x0, .LC1 ----------> Loads address of the string "You Lose :(" into x0
+    add x0, x0, :lo12:.LC1 ----------> Adds 12 bits of the address to x0
+    bl puts ----------> Calls the function 'puts' to print "You Lose :("
+.L6:
+    nop ----------> No operation or end of the function
+    ldp x29, x30, [sp], 48 ----------> Restores the register and frame pointer and deallocate the stack space
+    ret ----------> Returns from the 'main'
+```
+In the `main` function, I noticed that the value of `w0` is compared to `0` where the value of `w0` depends on the input provided by the user as defined in the `func` function: `w0 = w1 - w0 or 232 - initial value`.
+This meant that I needed to provide `232` as the input or initial argument for the program to execute the winning part.
+I then converted it to hexadecimal base using the online decoder found at `https://www.rapidtables.com/convert/number/decimal-to-hex.html`, which led me to the value as `000000E8` and the flag: `picoCTF{000000e8}`.
+
 # vault-door-3
 
 ## Description
@@ -68,4 +141,3 @@ int main()
 }
 ```
 Running this program led me to the `Correct Password` as `jU5t_a_s1mpl3_an4gr4m_4_u_1fb380` and the flag: `picoCTF{jU5t_a_s1mpl3_an4gr4m_4_u_1fb380}`.
-
