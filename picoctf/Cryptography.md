@@ -85,7 +85,7 @@ It then calculates the transformation `(cur - prev) % 40`.
 This transformation is then used to select a character from `lookup2` to append to the output while the encoder keeps track of the previous index `prev` to compute the transformation for the next character.
 So based on the identified logic, I created a Python program to carry out the decoding task.
 Here is the code:
-```
+```bash
 import sys
 chars = ""
 from fileinput import input
@@ -107,7 +107,7 @@ for char in chars:
 sys.stdout.write(out)
 ```
 Running this program with `DLSeGAGDgBNJDQJDCFSFnRBIDjgHoDFCFtHDgJpiHtGDmMAQFnRBJKkBAsTMrsPSDDnEFCFtIbEDtDCIbFCFtHTJDKerFldbFObFCFtLBFkBAAAPFnRBJGEkerFlcPgKkImHnIlATJDKbTbFOkdNnsgbnJRMFnRBNAFkBAAAbrcbTKAkOgFpOgFpOpkBAAAAAAAiClFGIPFnRBaKliCgClFGtIBAAAAAAAOgGEkImHnIl` as the input gave the output as:
-```
+```bash
 #asciiorder
 #fortychars
 #selfinput
@@ -126,7 +126,7 @@ for i in range(len(chars)):
 ```
 I noticed that `()` was missing in the `print` statement which seemed unusual to me so I started surfing the internet to find that it was a Python2 code.
 So I converted it into a Python3 code:
-```
+```bash
 #asciiorder
 #fortychars
 #selfinput
@@ -172,7 +172,7 @@ After the `XOR` operation, `semi_cipher` is further encrypted.
 The `encrypt()` function does this by multiplying each character's ASCII value by the `shared key` and further multiplying the result by `311` and appending the final result to the `cipher` list.
 The final output is a list of numbers that represent the encrypted version of the original message.
 So based on the identified logic, I created a Python program to carry out the `plaintext` retrieval task. Here is the code:
-```
+```bash
 from random import randint
 import sys
 
@@ -328,7 +328,7 @@ I decided to check both possibilities.
 I started with the first possibility which simplified the formula to `C = M^e` or `M = C^(1/e)`.
 So based on the identified logic, I created a Python program to carry out the `M` retrieval task.
 Here is the code:
-```
+```bash
 C = 2205316413931134031074603746928247799030155221252519872650073010782049179856976080512716237308882294226369300412719995904064931819531456392957957122459640736424089744772221933500860936331459280832211445548332429338572369823704784625368933
 
 def cuberoot(num):
