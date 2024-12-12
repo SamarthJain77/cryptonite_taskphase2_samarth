@@ -9,6 +9,9 @@
 - [m00nwalk](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Forensics.md#m00nwalk)
 
 ## Web Exploitation
+- [SOAP](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Web_Exploitation.md#soap)
+- [Forbidden Paths](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Web_Exploitation.md#forbidden-paths)
+- [Cookies](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Web_Exploitation.md#cookies)
 
 ## Cryptography
 - [C3](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Cryptography.md#c3)
