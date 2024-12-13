@@ -13,6 +13,7 @@
 ## Web Exploitation Extras
 - [WebDecode](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Web_Exploitation_Extras.md#webdecode)
 - [Unminify](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Web_Exploitation_Extras.md#unminify)
+- [IntroToBurp](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Web_Exploitation_Extras.md#introtoburp)
 
 ## Cryptography Extras
 - [interencdec](https://github.com/SamarthJain77/cryptonite_taskphase2_samarth/blob/main/picoctf/Cryptography_Extras.md#interencdec)
